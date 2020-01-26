@@ -6,7 +6,7 @@
 class Array: public Object {
     public:
     size_t arraySize;
-    Object** elements;
+    void** elements;
     
     /** Constructor for Array **/
     Array() {
@@ -15,10 +15,10 @@ class Array: public Object {
     }
 
     // Appends e to end of array
-    void push_back(Object* e) {}
+    void push_back(void* e) {}
 
     // Inserts e at index i 
-    void add(size_t i, Object* e) {}
+    void add(size_t i, void* e) {}
 
     // Adds elements in c to end of this array
     void concat(Array* c) {}
@@ -37,7 +37,7 @@ class Array: public Object {
     }
 
     // Returns the element at index
-    Object* get(size_t index) {}
+    void* get(size_t index) {}
 
     // Returns the hash code value for this array.
     size_t hash() {
@@ -48,10 +48,10 @@ class Array: public Object {
     size_t index_of(Object* o) {}
 
     //Removes the element at index i
-    Object* remove(size_t i) {}
+    void* remove(size_t i) {}
 
     // Replaces the element at index i with e
-    Object* set(size_t i, Object* e) {}
+    void* set(size_t i, Object* e) {}
 
     // Return the number of elements in the array
     size_t length() {

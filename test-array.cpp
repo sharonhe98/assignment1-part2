@@ -54,7 +54,7 @@ void test_void_back() {
   String * s = new String("Hello");
   Array * l = new Array();
   l->push_back(s);
-  t_true(l->elements[0]->equals(s));
+  t_true(static_cast<Object*>(l->elements[0])->equals(s));
   t_true(l->length() == 1);
   OK("test void_back");
 }
@@ -105,10 +105,10 @@ void test_add_all() {
     add->push_back(u);
     add->push_back(v);
     original->add_all(1, add);
-    Object * expected0 = original->get(0);
-    Object * expected1 = original->get(1);
-    Object * expected2 = original->get(2);
-    Object * expected3 = original->get(3);
+    Object * expected0 = static_cast<Object*>(original->get(0));
+    Object * expected1 = static_cast<Object*>(original->get(1));
+    Object * expected2 = static_cast<Object*>(original->get(2));
+    Object * expected3 = static_cast<Object*>(original->get(3));
     t_true(expected0->equals(s));
     t_true(expected1->equals(u));
     t_true(expected2->equals(v));
@@ -130,10 +130,10 @@ void test_add_all_zero() {
     add->push_back(u);
     add->push_back(v);
     original->add_all(0, add);
-    Object * expected0 = original->get(0);
-    Object * expected1 = original->get(1);
-    Object * expected2 = original->get(2);
-    Object * expected3 = original->get(3);
+    Object * expected0 = static_cast<Object*>(original->get(0));
+    Object * expected1 = static_cast<Object*>(original->get(1));
+    Object * expected2 = static_cast<Object*>(original->get(2));
+    Object * expected3 = static_cast<Object*>(original->get(3));
     t_true(expected0->equals(u));
     t_true(expected1->equals(v));
     t_true(expected2->equals(s));
@@ -152,8 +152,8 @@ void test_clear() {
     t_true(original->length() == 2);
     original->clear();
     t_true(original->length() == 2);
-    Object * expected0 = original->get(0);
-    Object * expected1 = original->get(1);
+    Object * expected0 = static_cast<Object*>(original->get(0));
+    Object * expected1 = static_cast<Object*>(original->get(1));
     t_true(expected0 == nullptr);
     t_true(expected1 == nullptr);
     OK("test clear");
@@ -183,8 +183,8 @@ void test_get() {
     Array * original = new Array();
     original->push_back(s);
     original->push_back(t);
-    Object * expected0 = original->get(0);
-    Object * expected1 = original->get(1);
+    Object * expected0 = static_cast<Object*>(original->get(0));
+    Object * expected1 = static_cast<Object*>(original->get(1));
     t_true(expected0->equals(s));
     t_true(expected1->equals(t));
     OK("test get");
@@ -235,10 +235,10 @@ void test_remove() {
     original->push_back(u);
     size_t original_size = original->length();
     t_true(original_size == 3);
-    Object * removed = original->remove(1);
+    Object * removed = static_cast<Object*>(original->remove(1));
     t_true(removed->equals(t));
     t_true(original->length() == 2);
-    t_true((original->get(1))->equals(u));
+    t_true(static_cast<Object*>(original->get(1))->equals(u));
     OK("test remove");
 }
 
@@ -250,9 +250,9 @@ void test_set() {
     Array * original = new Array();
     original->push_back(s);
     original->push_back(t);
-    t_true((original->get(0))->equals(s));
+    t_true(static_cast<Object*>(original->get(0))->equals(s));
     original->set(0, u);
-    t_true((original->get(0))->equals(u));
+    t_true(static_cast<Object*>(original->get(0))->equals(u));
     OK("test set");
 }
 
