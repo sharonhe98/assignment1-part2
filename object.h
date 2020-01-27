@@ -4,13 +4,8 @@
 
 class Object {
     public:
-
-    size_t hash_;
-
     // constructor initialize hash_
-    Object() {
-        hash_ = 0;
-    }
+    Object() {}
     
     // return hash code for object
     virtual size_t hash() {
