@@ -1,57 +1,60 @@
 #pragma once
+//lang::CwC
 #include "object.h"
-#include <string.h>
 
+/**
+ * An immutable string class. Represents a char*.
+ */
 class String : public Object {
-    public:
+public:
+    /** Constructors **/
 
-    char* val;
-    size_t size;
+    /** Construct a string copying s. Does not take ownership of s. */
+    String(char* s) {};
 
-    // default constructor
-    String() {
-        size = 0;
-        val = nullptr;
-    }
+    /** Construct a string copying s. Does not take ownership of s. */
+    String(const char* s) {};
 
-    // constructor takes in char array 
-    String(char* c) {
-        size = strlen(c);
-        val = new char[size];
+    /** Copy Constructor taking the same values as passed in String.*/
+    String(String &copy) {};
 
-        for (size_t i = 0; i < size; i++) {
-            val[i] = c[i];
-        }
-    }
+    /** Delete the string and free its data */
+    ~String () {};
 
-    // compares two strings and returns the val number
-    int compare(String* s) {
-        /** Use strcmp from the string.h library to return the int **/
-    }
+    /** Compare strings for equality. Equality is defined as being part of the same class
+     * and having the same values for all fields of Object and this String. Another way
+     * to check equality is to see if this and other have the same hash.
+    */
+    bool equals(Object* other) {};
 
-    // concats two strings
-    String* concat(String* s) {
-        /** Use strcpy and strcat from the string.h library to return the int **/
-    }
+    /** Returns 0 if strings are equal, > 0 if this string is larger,
+     *  < 0 otherwise. A string is considered 'larger' if this would come before tgt
+     * in a dictionary (it is either shorter in length or character is alphabetically before 
+     * tgt's corresponding character) */
+    int compare(String* tgt) {};
 
-    // return hash code
-    size_t hash() {
-        /** calculates the hash for the String **/
-    }
+    /** Computes the hash of this String.*/
+    size_t hash_me_() {};
 
-    // check if two Strings are equal
-    bool equals(Object *other) {
-        /** Cast Object to String* and compare **/
-    }
+    /** Number of non \0 characters in this string */
+    size_t length() {};
 
-    // returns the length of the string
-    size_t length() {
-        /** returns variable length **/
-    }
+    /** Concatenate the strings, return a new object. Other is added to the end of this String */
+    String* concat(String* other) {};
 
-    //destructing a string
-    ~String() {
-        delete[] val;
-    }
+    /** Return a newly allocated char* with this string value */
+    char* to_string() {};
 
+    /** Print this string on stdout. */
+    void print() {};
+
+    /**
+     * Returns a new String object that contains the characters within this string that 
+     * are bound by the given start_idx and end_idx. Includes characters at the 
+     * start and end index given. 
+     * Note: if start index > end index, errors out. 
+     * Note: if end_idx > length this string, just stops at end of this String. 
+     * Indexes cannot be negative. 
+    */
+    String splice(size_t start_idx, size_t end_idx);
 };
