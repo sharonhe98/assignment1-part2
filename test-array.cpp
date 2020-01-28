@@ -3,11 +3,12 @@
 #include "object.h"  // File with the CwC declaration of Object
 #include "string.h"  // File with the String class
 #include "array.h"    // File with the two list classes
+#include <stdio.h>
 
 void FAIL() {   exit(1);    }
 
 void OK(const char* m) {
-    /** print m */
+    printf(m);
 }
 
 void t_true(bool p) { if (!p) FAIL(); }
@@ -155,20 +156,6 @@ void test_clear() {
     OK("test clear");
 }
 
-// test get from empty list
-void test_clear_get() {
-    String * s = new String("Hello");
-    String * t = new String("World");
-    Array * original = new Array();
-    original->push_back(s);
-    original->push_back(t);
-    t_true(original->length() == 2);
-    original->clear();
-    t_true(original->length() == 0);
-    Object * expected0 = original->get(0);
-    FAIL();
-}
-
 // test equals
 void test_arr_equals() {
     String * s = new String("Hello");
@@ -176,8 +163,9 @@ void test_arr_equals() {
     Array * original = new Array();
     Array * copy = new Array();
     t_true(original->elements == nullptr);
-    t_false(original->equals(copy));
+    t_true(original->equals(copy));
     original->push_back(s);
+    t_false(original->equals(copy));
     original->push_back(t);
     copy->push_back(s);
     copy->push_back(t);
