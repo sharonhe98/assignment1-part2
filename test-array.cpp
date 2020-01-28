@@ -1,14 +1,13 @@
-#pragma once
 #include <stdlib.h>
 #include "object.h"  // File with the CwC declaration of Object
 #include "string.h"  // File with the String class
 #include "array.h"    // File with the two list classes
-#include <stdio.h>
+#include <iostream>
 
 void FAIL() {   exit(1);    }
 
 void OK(const char* m) {
-    printf(m);
+    std::cout << m << std::endl;
 }
 
 void t_true(bool p) { if (!p) FAIL(); }
