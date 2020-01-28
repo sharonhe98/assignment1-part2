@@ -151,12 +151,22 @@ void test_clear() {
     original->push_back(t);
     t_true(original->length() == 2);
     original->clear();
-    t_true(original->length() == 2);
-    Object * expected0 = original->get(0);
-    Object * expected1 = original->get(1);
-    t_true(expected0 == nullptr);
-    t_true(expected1 == nullptr);
+    t_true(original->length() == 0);
     OK("test clear");
+}
+
+// test get from empty list
+void test_clear_get() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    Array * original = new Array();
+    original->push_back(s);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    original->clear();
+    t_true(original->length() == 0);
+    Object * expected0 = original->get(0);
+    FAIL();
 }
 
 // test equals
