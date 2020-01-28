@@ -5,14 +5,9 @@
 
 class Array: public Object {
     public:
-    size_t arraySize;
-    Object** elements;
     
     /** Constructor for Array **/
-    Array() {
-        arraySize = 0;
-        elements = nullptr;
-    }
+    Array() {}
 
     // Appends e to end of array
     void push_back(Object* e) {}
@@ -59,9 +54,7 @@ class Array: public Object {
     }
 
     //destructing an Array
-    ~Array() {
-        delete[] elements;
-    } 
+    ~Array() {} 
 };
 
 class StrArray: public Object {
