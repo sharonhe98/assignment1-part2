@@ -217,7 +217,7 @@ void test_idx() {
     t_true(index_world == 1);
     String * u = new String("Hi");
     size_t not_exist = original->index_of(u);
-    t_true(not_exist == original->length());
+    t_true(not_exist >= original->length());
     OK("test index of");
 }
 
