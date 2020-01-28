@@ -19,9 +19,9 @@ void test_obj_equal() {
   size_t hash = s->hash_me_();
   Object * t = new Object();
   size_t same = t->hash_me_();
-  t_true(s->equals(t));
-  t_true(hash == same);
-  t_true(s->hash() == t->hash());
+  t_false(s->equals(t));
+  t_false(hash == same);
+  t_false(s->hash() == t->hash());
   OK("test objects equal");
 }
 
