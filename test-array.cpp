@@ -54,7 +54,7 @@ void test_void_back() {
   String * s = new String("Hello");
   Array * l = new Array();
   l->push_back(s);
-  t_true(l->elements[0]->equals(s));
+  t_true(l->get(0)->equals(s));
   t_true(l->length() == 1);
   OK("test void_back");
 }
@@ -175,7 +175,7 @@ void test_arr_equals() {
     String * t = new String("World");
     Array * original = new Array();
     Array * copy = new Array();
-    t_true(original->elements == nullptr);
+    t_true(original->length() == 0);
     t_false(original->equals(copy));
     original->push_back(s);
     original->push_back(t);
