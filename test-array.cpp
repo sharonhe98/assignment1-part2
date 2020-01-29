@@ -23,6 +23,9 @@ void test_obj_equal() {
   t_false(hash == same);
   t_false(s->hash() == t->hash());
   OK("test objects equal");
+    
+  delete s;
+  delete t;
 }
 
 // test String equals
@@ -35,6 +38,9 @@ void test_str_equal() {
   t_true(hash == same);
   t_true(s->compare(t) == 0);
   OK("test string equal");
+    
+  delete s;
+  delete t;
 }
 
 // test String concat
@@ -47,6 +53,10 @@ void test_str_concat() {
   t_false(s->equals(u));
   t_false(s->compare(t) == 0);
   OK("test string concat");
+    
+  delete s;
+  delete t;
+  delete u;
 }
 
 // test void_back
@@ -57,6 +67,9 @@ void test_void_back() {
   t_true(l->get(0)->equals(s));
   t_true(l->length() == 1);
   OK("test void_back");
+    
+  delete s;
+  delete l;
 }
 
 // test add
@@ -75,6 +88,12 @@ void test_add() {
     t_true(l->length() == 3);
     t_true(l->equals(l_expect));
     OK("test add");
+    
+    delete s;
+    delete t;
+    delete u;
+    delete l;
+    delete l_expect;
 }
 
 // test add at pos 0
@@ -90,6 +109,11 @@ void test_add_zero() {
     t_true(l->length() == 2);
     t_true(l->equals(l_expect));
     OK("test add zero");
+    
+    delete s;
+    delete t;
+    delete l;
+    delete l_expect;
 }
 
 // test add all
@@ -115,6 +139,13 @@ void test_add_all() {
     t_true(expected3->equals(t));
     t_true(original->length() == 4);
     OK("test add all");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete u;
+    delete v;
+    delete add;
 }
 
 // test add all at pos 0
@@ -140,6 +171,13 @@ void test_add_all_zero() {
     t_true(expected3->equals(t));
     t_true(original->length() == 4);
     OK("test add all 0");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete u;
+    delete v;
+    delete add;
 }
 
 // test clear
@@ -153,6 +191,10 @@ void test_clear() {
     original->clear();
     t_true(original->length() == 0);
     OK("test clear");
+    
+    delete s;
+    delete t;
+    delete original;
 }
 
 // test equals
@@ -171,6 +213,11 @@ void test_arr_equals() {
     t_true(original->equals(copy));
     t_true(copy->equals(original));
     OK("test arrays equal");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete copy;
 }
 
 // test get
@@ -185,6 +232,10 @@ void test_get() {
     t_true(expected0->equals(s));
     t_true(expected1->equals(t));
     OK("test get");
+    
+    delete s;
+    delete t;
+    delete original;
 }
 
 // test hash
@@ -202,6 +253,11 @@ void test_hash() {
     size_t hash_other = other->hash();
     t_true(hash == hash_other);
     OK("test hash");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete other;
 }
 
 // test index of
@@ -219,6 +275,11 @@ void test_idx() {
     size_t not_exist = original->index_of(u);
     t_true(not_exist >= original->length());
     OK("test index of");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete u;
 }
 
 // test remove
@@ -237,6 +298,11 @@ void test_remove() {
     t_true(original->length() == 2);
     t_true((original->get(1))->equals(u));
     OK("test remove");
+    
+    delete s;
+    delete t;
+    delete u;
+    delete original;
 }
 
 // test set
@@ -251,6 +317,11 @@ void test_set() {
     original->set(0, u);
     t_true((original->get(0))->equals(u));
     OK("test set");
+    
+    delete s;
+    delete t;
+    delete u;
+    delete original;
 }
 
 // test size
@@ -264,6 +335,10 @@ void test_size() {
     original->push_back(t);
     t_true(original->length() == 2);
     OK("test size");
+    
+    delete s;
+    delete t;
+    delete original;
 }
  
 int main() {
