@@ -192,8 +192,6 @@ void test_clear() {
     t_true(original->length() == 0);
     OK("test clear");
     
-    delete s;
-    delete t;
     delete original;
 }
 
