@@ -623,7 +623,7 @@ void test_int_clear() {
 }
 
 // test float clear
-void test_clear() {
+void test_float_clear() {
     float s = -45.2;
     float t = 34.7;
     FloatArray * original = new FloatArray();
@@ -638,7 +638,7 @@ void test_clear() {
 }
 
 // test bool clear
-void test_clear() {
+void test_bool_clear() {
     bool s = 0;
     bool t = 1;
     BoolArray * original = new BoolArray();
@@ -884,8 +884,8 @@ void test_str_hash() {
 
 // test int hash
 void test_int_hash() {
-    int * s = -2;
-    int * t = 3;
+    int s = -2;
+    int t = 3;
     IntArray * original = new IntArray();
     original->push_back(s);
     original->push_back(t);
@@ -904,8 +904,8 @@ void test_int_hash() {
 
 // test float hash
 void test_float_hash() {
-    float * s = -2;
-    float * t = 3.5;
+    float s = -2;
+    float t = 3.5;
     FloatArray * original = new FloatArray();
     original->push_back(s);
     original->push_back(t);
@@ -924,8 +924,8 @@ void test_float_hash() {
 
 // test bool hash
 void test_bool_hash() {
-    bool * s = 1;
-    bool * t = 1;
+    bool s = 1;
+    bool t = 1;
     BoolArray * original = new BoolArray();
     original->push_back(s);
     original->push_back(t);
@@ -1003,7 +1003,6 @@ void test_int_idx() {
     OK("test int index of");
     
     delete original;
-    delete u;
 }
 
 // test float index of
@@ -1023,7 +1022,6 @@ void test_float_idx() {
     OK("test float index of");
     
     delete original;
-    delete u;
 }
 
 // test bool index of
@@ -1043,7 +1041,6 @@ void test_bool_idx() {
     OK("test bool index of");
     
     delete original;
-    delete u;
 }
 
 // test remove
@@ -1203,7 +1200,6 @@ void test_int_set() {
     t_true((original->get(0)) == u);
     OK("test int set");
     
-    delete u;
     delete original;
 }
 
@@ -1220,7 +1216,6 @@ void test_float_set() {
     t_true((original->get(0)) == u);
     OK("test float set");
     
-    delete u;
     delete original;
 }
 
@@ -1237,7 +1232,6 @@ void test_bool_set() {
     t_true((original->get(0)) == u);
     OK("test bool set");
     
-    delete u;
     delete original;
 }
 
