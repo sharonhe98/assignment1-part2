@@ -203,6 +203,80 @@ void test_add_zero() {
     delete l_expect;
 }
 
+// test add at pos 0
+void test_str_add_zero() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    StrArray * l = new StrArray();
+    l->push_back(t);
+    l->add(0, s);
+    StrArray * l_expect = new StrArray();
+    l_expect->push_back(s);
+    l_expect->push_back(t);
+    t_true(l->length() == 2);
+    t_true(l->equals(l_expect));
+    OK("test str add zero");
+    
+    delete s;
+    delete t;
+    delete l;
+    delete l_expect;
+}
+
+// test add at pos 0
+void test_int_add_zero() {
+    int s = 6;
+    int t = 7;
+    IntArray * l = new IntArray();
+    l->push_back(t);
+    l->add(0, s);
+    IntArray * l_expect = new IntArray();
+    l_expect->push_back(s);
+    l_expect->push_back(t);
+    t_true(l->length() == 2);
+    t_true(l->equals(l_expect));
+    OK("test int add zero");
+    
+    delete l;
+    delete l_expect;
+}
+
+// test add at pos 0
+void test_float_add_zero() {
+    float s = 4.6;
+    float t = -3.7;
+    FloatArray * l = new FloatArray();
+    l->push_back(t);
+    l->add(0, s);
+    FloatArray * l_expect = new FloatArray();
+    l_expect->push_back(s);
+    l_expect->push_back(t);
+    t_true(l->length() == 2);
+    t_true(l->equals(l_expect));
+    OK("test float add zero");
+    
+    delete l;
+    delete l_expect;
+}
+
+// test add at pos 0
+void test_bool_add_zero() {
+    bool s = 0;
+    bool t = 1;
+    BoolArray * l = new BoolArray();
+    l->push_back(t);
+    l->add(0, s);
+    BoolArray * l_expect = new BoolArray();
+    l_expect->push_back(s);
+    l_expect->push_back(t);
+    t_true(l->length() == 2);
+    t_true(l->equals(l_expect));
+    OK("test bool add zero");
+    
+    delete l;
+    delete l_expect;
+}
+
 // test add all
 void test_add_all() {
     String * s = new String("Hello");
