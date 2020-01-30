@@ -386,9 +386,9 @@ void test_str_arr_equals() {
     StrArray * original = new StrArray();
     StrArray * copy = new StrArray();
     t_true(original->equals(copy));
-    original->pushback(s);
+    original->push_back(s);
     t_false(original->equals(copy));
-    copy->pushback(s);
+    copy->push_back(s);
     t_true(original->equals(copy));
     OK("test StrArray equals");
     
@@ -407,10 +407,10 @@ void test_int_arr_equals() {
     t_true(original->equals(copy));
     original->push_back(s);
     t_false(original->equals(copy));
-    copy->pushback(s);
+    copy->push_back(s);
     t_true(original->equals(copy));
-    copy->pushback(t);
-    original->pushback(-8);
+    copy->push_back(t);
+    original->push_back(-8);
     t_true(original->equals(copy));
     OK("test IntArray equals");
     
@@ -427,10 +427,10 @@ void test_float_arr_equals() {
     t_true(original->equals(copy));
     original->push_back(s);
     t_false(original->equals(copy));
-    copy->pushback(5.3);
+    copy->push_back(5.3);
     t_true(original->equals(copy));
-    copy->pushback(t);
-    original->pushback(t);
+    copy->push_back(t);
+    original->push_back(t);
     t_true(original->equals(copy));
     OK("test FloatArray equals");
     
@@ -447,10 +447,10 @@ void test_bool_arr_equals() {
     t_true(original->equals(copy));
     original->push_back(s);
     t_false(original->equals(copy));
-    copy->pushback(0);
+    copy->push_back(0);
     t_true(original->equals(copy));
-    copy->pushback(t);
-    original->pushback(1);
+    copy->push_back(t);
+    original->push_back(1);
     t_true(original->equals(copy));
     OK("test BoolArray equals");
     
