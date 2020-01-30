@@ -1069,6 +1069,89 @@ void test_remove() {
     delete original;
 }
 
+// test str remove
+void test_str_remove() {
+    String * s = new String("Hello");
+    String * t = new String("My");
+    String * u = new String("World");
+    StrArray * original = new StrArray();
+    original->push_back(s);
+    original->push_back(t);
+    original->push_back(u);
+    size_t original_size = original->length();
+    t_true(original_size == 3);
+    String * removed = original->remove(1);
+    t_true(removed->equals(t));
+    t_true(original->length() == 2);
+    t_true((original->get(1))->equals(u));
+    OK("test str remove");
+    
+    delete s;
+    delete t;
+    delete u;
+    delete original;
+}
+
+// test int remove
+void test_int_remove() {
+    int s = 37;
+    int t = 6;
+    int u = 1522;
+    IntArray * original = new IntArray();
+    original->push_back(s);
+    original->push_back(t);
+    original->push_back(u);
+    size_t original_size = original->length();
+    t_true(original_size == 3);
+    int removed = original->remove(1);
+    t_true(removed == t);
+    t_true(original->length() == 2);
+    t_true((original->get(1)) == u);
+    OK("test int remove");
+
+    delete original;
+}
+
+// test float remove
+void test_float_remove() {
+    float s = 3.7;
+    float t = 6.0;
+    float u = 1522.141529;
+    FloatArray * original = new FloatArray();
+    original->push_back(s);
+    original->push_back(t);
+    original->push_back(u);
+    size_t original_size = original->length();
+    t_true(original_size == 3);
+    float removed = original->remove(1);
+    t_true(removed == t);
+    t_true(original->length() == 2);
+    t_true((original->get(1)) == u);
+    OK("test float remove");
+
+    delete original;
+}
+
+// test bool remove
+void test_bool_remove() {
+    bool s = 1;
+    bool t = 0;
+    bool u = 0;
+    BoolArray * original = new BoolArray();
+    original->push_back(s);
+    original->push_back(t);
+    original->push_back(u);
+    size_t original_size = original->length();
+    t_true(original_size == 3);
+    bool removed = original->remove(1);
+    t_true(removed == t);
+    t_true(original->length() == 2);
+    t_true((original->get(1)) == u);
+    OK("test bool remove");
+
+    delete original;
+}
+
 // test set
 void test_set() {
     String * s = new String("Hello");
@@ -1084,6 +1167,76 @@ void test_set() {
     
     delete s;
     delete t;
+    delete u;
+    delete original;
+}
+
+// test str set
+void test_str_set() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    String * u = new String("Goodbye");
+    StrArray * original = new StrArray();
+    original->push_back(s);
+    original->push_back(t);
+    t_true((original->get(0))->equals(s));
+    original->set(0, u);
+    t_true((original->get(0))->equals(u));
+    OK("test str set");
+    
+    delete s;
+    delete t;
+    delete u;
+    delete original;
+}
+
+// test int set
+void test_int_set() {
+    int s = 96;
+    int t = -72;
+    int u = 84;
+    IntArray * original = new IntArray();
+    original->push_back(s);
+    original->push_back(t);
+    t_true((original->get(0)) == s);
+    original->set(0, u);
+    t_true((original->get(0)) == u);
+    OK("test int set");
+    
+    delete u;
+    delete original;
+}
+
+// test float set
+void test_float_set() {
+    float s = 96;
+    float t = -72;
+    float u = 84;
+    FloatArray * original = new FloatArray();
+    original->push_back(s);
+    original->push_back(t);
+    t_true((original->get(0)) == s);
+    original->set(0, u);
+    t_true((original->get(0)) == u);
+    OK("test float set");
+    
+    delete u;
+    delete original;
+}
+
+// test bool set
+void test_bool_set() {
+    bool s = 96.5;
+    bool t = -72.5;
+    bool u = 84.5;
+    BoolArray * original = new BoolArray();
+    original->push_back(s);
+    original->push_back(t);
+    t_true((original->get(0)) == s);
+    original->set(0, u);
+    t_true((original->get(0)) == u);
+    OK("test bool set");
+    
     delete u;
     delete original;
 }
@@ -1104,6 +1257,68 @@ void test_size() {
     delete t;
     delete original;
 }
+
+// test str size
+void test_str_size() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    StrArray * original = new StrArray();
+    t_true(original->length() == 0);
+    original->push_back(s);
+    t_true(original->length() == 1);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    OK("test str size");
+    
+    delete s;
+    delete t;
+    delete original;
+}
+
+// test int size
+void test_int_size() {
+    int s = 17;
+    int t = -11;
+    IntArray * original = new IntArray();
+    t_true(original->length() == 0);
+    original->push_back(s);
+    t_true(original->length() == 1);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    OK("test int size");
+    
+    delete original;
+}
+
+// test float size
+void test_float_size() {
+    float s = 17.0;
+    float t = -11.0;
+    FloatArray * original = new FloatArray();
+    t_true(original->length() == 0);
+    original->push_back(s);
+    t_true(original->length() == 1);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    OK("test float size");
+    
+    delete original;
+}
+
+// test bool size
+void test_bool_size() {
+    bool s = 0;
+    bool t = 1;
+    BoolArray * original = new BoolArray();
+    t_true(original->length() == 0);
+    original->push_back(s);
+    t_true(original->length() == 1);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    OK("test bool size");
+    
+    delete original;
+}
  
 int main() {
     test_obj_equal();
@@ -1122,6 +1337,54 @@ int main() {
     test_remove();
     test_set();
     test_size();
+    test_str_add();
+    test_str_add_zero();
+    test_str_add_all();
+    test_str_add_all_zero();
+    test_str_clear();
+    test_str_arr_equals();
+    test_str_get();
+    test_str_hash();
+    test_str_idx();
+    test_str_remove();
+    test_str_set();
+    test_str_size();
+    test_int_add();
+    test_int_add_zero();
+    test_int_add_all();
+    test_int_add_all_zero();
+    test_int_clear();
+    test_int_arr_equals();
+    test_int_get();
+    test_int_hash();
+    test_int_idx();
+    test_int_remove();
+    test_int_set();
+    test_int_size();
+    test_float_add();
+    test_float_add_zero();
+    test_float_add_all();
+    test_float_add_all_zero();
+    test_float_clear();
+    test_float_arr_equals();
+    test_float_get();
+    test_float_hash();
+    test_float_idx();
+    test_float_remove();
+    test_float_set();
+    test_float_size();
+    test_bool_add();
+    test_bool_add_zero();
+    test_bool_add_all();
+    test_bool_add_all_zero();
+    test_bool_clear();
+    test_bool_arr_equals();
+    test_bool_get();
+    test_bool_hash();
+    test_bool_idx();
+    test_bool_remove();
+    test_bool_set();
+    test_bool_size();
 
   return 0;
 }
