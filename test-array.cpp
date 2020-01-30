@@ -585,6 +585,70 @@ void test_clear() {
     t_true(original->length() == 0);
     OK("test clear");
     
+    delete s;
+    delete t;
+    delete original;
+}
+
+// test str clear
+void test_str_clear() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    StrArray * original = new StrArray();
+    original->push_back(s);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    original->clear();
+    t_true(original->length() == 0);
+    OK("test str clear");
+    
+    delete s;
+    delete t;
+    delete original;
+}
+
+// test int clear
+void test_int_clear() {
+    int s = 45;
+    int t = 34;
+    IntArray * original = new IntArray();
+    original->push_back(s);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    original->clear();
+    t_true(original->length() == 0);
+    OK("test int clear");
+    
+    delete original;
+}
+
+// test float clear
+void test_clear() {
+    float s = -45.2;
+    float t = 34.7;
+    FloatArray * original = new FloatArray();
+    original->push_back(s);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    original->clear();
+    t_true(original->length() == 0);
+    OK("test float clear");
+    
+    delete original;
+}
+
+// test bool clear
+void test_clear() {
+    bool s = 0;
+    bool t = 1;
+    BoolArray * original = new BoolArray();
+    original->push_back(s);
+    original->push_back(t);
+    t_true(original->length() == 2);
+    original->clear();
+    t_true(original->length() == 0);
+    OK("test bool clear");
+    
     delete original;
 }
 
