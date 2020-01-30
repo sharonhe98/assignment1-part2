@@ -218,6 +218,91 @@ void test_arr_equals() {
     delete copy;
 }
 
+// test String array equals
+void test_str_arr_equals() {
+    String* s = new String("Hello");
+    String* t = new String("World");
+    StrArray * original = new Array();
+    StrArray * copy = new Array();
+    t_true(original->equals(copy));
+    original->pushback(s);
+    t_false(original->equals(copy));
+    copy->pushback(s);
+    t_true(original->equals(copy));
+    OK("test StrArray equals");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete copy;
+}
+
+// test Int array equals
+void test_int_arr_equals() {
+    int s = 5;
+    int t = -8;
+    IntArray * original = new Array();
+    IntArray * copy = new Array();
+    t_true(original->equals(copy));
+    original->push_back(s);
+    t_false(original->equals(copy));
+    copy->pushback(s);
+    t_true(original->equals(copy));
+    copy->pushback(t);
+    original->pushback(-8);
+    t_true(original->equals(copy));
+    OK("test IntArray equals");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete copy;
+}
+
+// test Float array equals
+void test_float_arr_equals() {
+    int s = 5.3;
+    int t = -8;
+    FloatArray * original = new Array();
+    FloatArray * copy = new Array();
+    t_true(original->equals(copy));
+    original->push_back(s);
+    t_false(original->equals(copy));
+    copy->pushback(5.3);
+    t_true(original->equals(copy));
+    copy->pushback(t);
+    original->pushback(t);
+    t_true(original->equals(copy));
+    OK("test FloatArray equals");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete copy;
+}
+
+// test Int array equals
+void test_bool_arr_equals() {
+    int s = 0;
+    int t = 1;
+    BoolArray * original = new Array();
+    BoolArray * copy = new Array();
+    t_true(original->equals(copy));
+    original->push_back(s);
+    t_false(original->equals(copy));
+    copy->pushback(0);
+    t_true(original->equals(copy));
+    copy->pushback(t);
+    original->pushback(1);
+    t_true(original->equals(copy));
+    OK("test BoolArray equals");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete copy;
+}
+
 // test get
 void test_get() {
     String * s = new String("Hello");
