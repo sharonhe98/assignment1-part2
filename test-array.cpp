@@ -358,10 +358,10 @@ void test_int_add_all() {
     int expected1 = original->get(1);
     int expected2 = original->get(2);
     int expected3 = original->get(3);
-    t_true(expected0->equals(s));
-    t_true(expected1->equals(u));
-    t_true(expected2->equals(v));
-    t_true(expected3->equals(t));
+    t_true(expected0 == s);
+    t_true(expected1 == u);
+    t_true(expected2 == v);
+    t_true(expected3 == t);
     t_true(original->length() == 4);
     OK("test int add all");
     
@@ -386,10 +386,10 @@ void test_float_add_all() {
     float expected1 = original->get(1);
     float expected2 = original->get(2);
     float expected3 = original->get(3);
-    t_true(expected0->equals(s));
-    t_true(expected1->equals(u));
-    t_true(expected2->equals(v));
-    t_true(expected3->equals(t));
+    t_true(expected0 == s);
+    t_true(expected1 == u);
+    t_true(expected2 == v);
+    t_true(expected3 == t);
     t_true(original->length() == 4);
     OK("test float add all");
     
@@ -414,10 +414,10 @@ void test_bool_add_all() {
     bool expected1 = original->get(1);
     bool expected2 = original->get(2);
     bool expected3 = original->get(3);
-    t_true(expected0->equals(s));
-    t_true(expected1->equals(u));
-    t_true(expected2->equals(v));
-    t_true(expected3->equals(t));
+    t_true(expected0 == s);
+    t_true(expected1 == u);
+    t_true(expected2 == v);
+    t_true(expected3 == t);
     t_true(original->length() == 4);
     OK("test bool add all");
     
@@ -454,6 +454,122 @@ void test_add_all_zero() {
     delete original;
     delete u;
     delete v;
+    delete add;
+}
+
+// test add all at pos 0
+void test_str_add_all_zero() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    StrArray * original = new StrArray();
+    original->push_back(s);
+    original->push_back(t);
+    String * u = new String("my");
+    String * v = new String("beautiful");
+    StrArray * add = new StrArray();
+    add->push_back(u);
+    add->push_back(v);
+    original->add_all(0, add);
+    String * expected0 = original->get(0);
+    String * expected1 = original->get(1);
+    String * expected2 = original->get(2);
+    String * expected3 = original->get(3);
+    t_true(expected0->equals(u));
+    t_true(expected1->equals(v));
+    t_true(expected2->equals(s));
+    t_true(expected3->equals(t));
+    t_true(original->length() == 4);
+    OK("test str add all 0");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete u;
+    delete v;
+    delete add;
+}
+
+// test add all at pos 0
+void test_int_add_all_zero() {
+    int s = 78;
+    int t = 9
+    IntArray * original = new IntArray();
+    original->push_back(s);
+    original->push_back(t);
+    int u = 16;
+    int v = 73
+    IntArray * add = new IntArray();
+    add->push_back(u);
+    add->push_back(v);
+    original->add_all(0, add);
+    int expected0 = original->get(0);
+    int expected1 = original->get(1);
+    int expected2 = original->get(2);
+    int expected3 = original->get(3);
+    t_true(expected0 == u);
+    t_true(expected1 == v);
+    t_true(expected2 == s);
+    t_true(expected3 == t);
+    t_true(original->length() == 4);
+    OK("test int add all 0");
+    
+    delete original;
+    delete add;
+}
+
+// test add all at pos 0
+void test_float_add_all_zero() {
+    float s = 78.4;
+    float t = 9;
+    FloatArray * original = new FloatArray();
+    original->push_back(s);
+    original->push_back(t);
+    float u = -16.2;
+    float v = 73.2;
+    FloatArray * add = new FloatArray();
+    add->push_back(u);
+    add->push_back(v);
+    original->add_all(0, add);
+    float expected0 = original->get(0);
+    float expected1 = original->get(1);
+    float expected2 = original->get(2);
+    float expected3 = original->get(3);
+    t_true(expected0 == u);
+    t_true(expected1 == v);
+    t_true(expected2 == s);
+    t_true(expected3 == t);
+    t_true(original->length() == 4);
+    OK("test float add all 0");
+    
+    delete original;
+    delete add;
+}
+
+// test add all at pos 0
+void test_bool_add_all_zero() {
+    bool s = 0;
+    bool t = 0;
+    BoolArray * original = new BoolArray();
+    original->push_back(s);
+    original->push_back(t);
+    bool u = 1;
+    bool v = 0;
+    BoolArray * add = new BoolArray();
+    add->push_back(u);
+    add->push_back(v);
+    original->add_all(0, add);
+    bool expected0 = original->get(0);
+    bool expected1 = original->get(1);
+    bool expected2 = original->get(2);
+    bool expected3 = original->get(3);
+    t_true(expected0 == u);
+    t_true(expected1 == v);
+    t_true(expected2 == s);
+    t_true(expected3 == t);
+    t_true(original->length() == 4);
+    OK("test bool add all 0");
+    
+    delete original;
     delete add;
 }
 
