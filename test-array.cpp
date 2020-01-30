@@ -772,6 +772,72 @@ void test_get() {
     delete original;
 }
 
+// test str get
+void test_str_get() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    StringArray * original = new StringArray();
+    original->push_back(s);
+    original->push_back(t);
+    Object * expected0 = original->get(0);
+    Object * expected1 = original->get(1);
+    t_true(expected0->equals(s));
+    t_true(expected1->equals(t));
+    OK("test str get");
+    
+    delete s;
+    delete t;
+    delete original;
+}
+
+// test int get
+void test_int_get() {
+    int s = -6;
+    int t = -97;
+    IntArray * original = new IntArray();
+    original->push_back(s);
+    original->push_back(t);
+    Object * expected0 = original->get(0);
+    Object * expected1 = original->get(1);
+    t_true(expected0 == s);
+    t_true(expected1 == t);
+    OK("test int get");
+
+    delete original;
+}
+
+// test float get
+void test_float_get() {
+    float s = -6.8;
+    float t = -9.7;
+    FloatArray * original = new FloatArray();
+    original->push_back(s);
+    original->push_back(t);
+    Object * expected0 = original->get(0);
+    Object * expected1 = original->get(1);
+    t_true(expected0 == s);
+    t_true(expected1 == t);
+    OK("test float get");
+
+    delete original;
+}
+
+// test bool get
+void test_bool_get() {
+    bool s = 0;
+    bool t = 1;
+    BoolArray * original = new BoolArray();
+    original->push_back(s);
+    original->push_back(t);
+    Object * expected0 = original->get(0);
+    Object * expected1 = original->get(1);
+    t_true(expected0 == s);
+    t_true(expected1 == t);
+    OK("test bool get");
+
+    delete original;
+}
+
 // test hash
 void test_hash() {
     String * s = new String("Hello");
