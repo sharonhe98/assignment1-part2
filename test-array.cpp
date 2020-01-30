@@ -860,6 +860,88 @@ void test_hash() {
     delete other;
 }
 
+// test str hash
+void test_str_hash() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    StrArray * original = new StrArray();
+    original->push_back(s);
+    original->push_back(t);
+    StrArray * other = new StrArray();
+    other->push_back(s);
+    t_false(original->hash() == other->hash());
+    other->push_back(t);
+    size_t hash = original->hash();
+    size_t hash_other = other->hash();
+    t_true(hash == hash_other);
+    OK("test str hash");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete other;
+}
+
+// test int hash
+void test_int_hash() {
+    int * s = -2;
+    int * t = 3;
+    IntArray * original = new IntArray();
+    original->push_back(s);
+    original->push_back(t);
+    IntArray * other = new IntArray();
+    other->push_back(s);
+    t_false(original->hash() == other->hash());
+    other->push_back(t);
+    size_t hash = original->hash();
+    size_t hash_other = other->hash();
+    t_true(hash == hash_other);
+    OK("test int hash");
+    
+    delete original;
+    delete other;
+}
+
+// test float hash
+void test_float_hash() {
+    float * s = -2;
+    float * t = 3.5;
+    FloatArray * original = new FloatArray();
+    original->push_back(s);
+    original->push_back(t);
+    FloatArray * other = new FloatArray();
+    other->push_back(s);
+    t_false(original->hash() == other->hash());
+    other->push_back(t);
+    size_t hash = original->hash();
+    size_t hash_other = other->hash();
+    t_true(hash == hash_other);
+    OK("test float hash");
+    
+    delete original;
+    delete other;
+}
+
+// test bool hash
+void test_bool_hash() {
+    bool * s = 1;
+    bool * t = 1;
+    BoolArray * original = new BoolArray();
+    original->push_back(s);
+    original->push_back(t);
+    BoolArray * other = new BoolArray();
+    other->push_back(s);
+    t_false(original->hash() == other->hash());
+    other->push_back(t);
+    size_t hash = original->hash();
+    size_t hash_other = other->hash();
+    t_true(hash == hash_other);
+    OK("test bool hash");
+    
+    delete original;
+    delete other;
+}
+
 // test index of
 void test_idx() {
     String * s = new String("Hello");
