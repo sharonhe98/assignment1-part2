@@ -964,6 +964,88 @@ void test_idx() {
     delete u;
 }
 
+// test str index of
+void test_str_idx() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    StrArray * original = new StrArray();
+    original->push_back(s);
+    original->push_back(t);
+    size_t index_hello = original->index_of(s);
+    t_true(index_hello == 0);
+    size_t index_world = original->index_of(t);
+    t_true(index_world == 1);
+    String * u = new String("Hi");
+    size_t not_exist = original->index_of(u);
+    t_true(not_exist >= original->length());
+    OK("test str index of");
+    
+    delete s;
+    delete t;
+    delete original;
+    delete u;
+}
+
+// test int index of
+void test_int_idx() {
+    int s = 2;
+    int t = -3;
+    IntArray * original = new IntArray();
+    original->push_back(s);
+    original->push_back(t);
+    size_t index_s = original->index_of(s);
+    t_true(index_s == 0);
+    size_t index_t = original->index_of(t);
+    t_true(index_t == 1);
+    int u = 1;
+    size_t not_exist = original->index_of(u);
+    t_true(not_exist >= original->length());
+    OK("test int index of");
+    
+    delete original;
+    delete u;
+}
+
+// test float index of
+void test_float_idx() {
+    float s = 2.0;
+    float t = -3.8;
+    FloatArray * original = new FloatArray();
+    original->push_back(s);
+    original->push_back(t);
+    size_t index_s = original->index_of(s);
+    t_true(index_s == 0);
+    size_t index_t = original->index_of(t);
+    t_true(index_t == 1);
+    float u = 1.9;
+    size_t not_exist = original->index_of(u);
+    t_true(not_exist >= original->length());
+    OK("test float index of");
+    
+    delete original;
+    delete u;
+}
+
+// test bool index of
+void test_bool_idx() {
+    bool s = 0;
+    bool t = 0;
+    BoolArray * original = new BoolArray();
+    original->push_back(s);
+    original->push_back(t);
+    size_t index_s = original->index_of(s);
+    t_true(index_s == 0);
+    size_t index_t = original->index_of(t);
+    t_true(index_t == 1);
+    bool u = 1;
+    size_t not_exist = original->index_of(u);
+    t_true(not_exist >= original->length());
+    OK("test bool index of");
+    
+    delete original;
+    delete u;
+}
+
 // test remove
 void test_remove() {
     String * s = new String("Hello");
