@@ -492,12 +492,12 @@ void test_str_add_all_zero() {
 // test add all at pos 0
 void test_int_add_all_zero() {
     int s = 78;
-    int t = 9
+    int t = 9;
     IntArray * original = new IntArray();
     original->push_back(s);
     original->push_back(t);
     int u = 16;
-    int v = 73
+    int v = 73;
     IntArray * add = new IntArray();
     add->push_back(u);
     add->push_back(v);
@@ -585,8 +585,6 @@ void test_clear() {
     t_true(original->length() == 0);
     OK("test clear");
     
-    delete s;
-    delete t;
     delete original;
 }
 
@@ -602,8 +600,6 @@ void test_str_clear() {
     t_true(original->length() == 0);
     OK("test str clear");
     
-    delete s;
-    delete t;
     delete original;
 }
 
@@ -658,6 +654,7 @@ void test_arr_equals() {
     String * t = new String("World");
     Array * original = new Array();
     Array * copy = new Array();
+    
     t_true(original->get(0) == nullptr);
     t_true(original->equals(copy));
     original->push_back(s);
@@ -668,11 +665,6 @@ void test_arr_equals() {
     t_true(original->equals(copy));
     t_true(copy->equals(original));
     OK("test arrays equal");
-    
-    delete s;
-    delete t;
-    delete original;
-    delete copy;
 }
 
 // test String array equals
@@ -776,7 +768,7 @@ void test_get() {
 void test_str_get() {
     String * s = new String("Hello");
     String * t = new String("World");
-    StringArray * original = new StringArray();
+    StrArray * original = new StrArray();
     original->push_back(s);
     original->push_back(t);
     Object * expected0 = original->get(0);
@@ -797,8 +789,8 @@ void test_int_get() {
     IntArray * original = new IntArray();
     original->push_back(s);
     original->push_back(t);
-    Object * expected0 = original->get(0);
-    Object * expected1 = original->get(1);
+    int expected0 = original->get(0);
+    int expected1 = original->get(1);
     t_true(expected0 == s);
     t_true(expected1 == t);
     OK("test int get");
@@ -813,8 +805,8 @@ void test_float_get() {
     FloatArray * original = new FloatArray();
     original->push_back(s);
     original->push_back(t);
-    Object * expected0 = original->get(0);
-    Object * expected1 = original->get(1);
+    float expected0 = original->get(0);
+    float expected1 = original->get(1);
     t_true(expected0 == s);
     t_true(expected1 == t);
     OK("test float get");
@@ -829,8 +821,8 @@ void test_bool_get() {
     BoolArray * original = new BoolArray();
     original->push_back(s);
     original->push_back(t);
-    Object * expected0 = original->get(0);
-    Object * expected1 = original->get(1);
+    bool expected0 = original->get(0);
+    bool expected1 = original->get(1);
     t_true(expected0 == s);
     t_true(expected1 == t);
     OK("test bool get");
@@ -958,8 +950,6 @@ void test_idx() {
     t_true(not_exist >= original->length());
     OK("test index of");
     
-    delete s;
-    delete t;
     delete original;
     delete u;
 }
@@ -980,8 +970,6 @@ void test_str_idx() {
     t_true(not_exist >= original->length());
     OK("test str index of");
     
-    delete s;
-    delete t;
     delete original;
     delete u;
 }
@@ -1027,7 +1015,7 @@ void test_float_idx() {
 // test bool index of
 void test_bool_idx() {
     bool s = 0;
-    bool t = 0;
+    bool t = 1;
     BoolArray * original = new BoolArray();
     original->push_back(s);
     original->push_back(t);
@@ -1035,9 +1023,6 @@ void test_bool_idx() {
     t_true(index_s == 0);
     size_t index_t = original->index_of(t);
     t_true(index_t == 1);
-    bool u = 1;
-    size_t not_exist = original->index_of(u);
-    t_true(not_exist >= original->length());
     OK("test bool index of");
     
     delete original;
@@ -1060,9 +1045,6 @@ void test_remove() {
     t_true((original->get(1))->equals(u));
     OK("test remove");
     
-    delete s;
-    delete t;
-    delete u;
     delete original;
 }
 
@@ -1083,9 +1065,7 @@ void test_str_remove() {
     t_true((original->get(1))->equals(u));
     OK("test str remove");
     
-    delete s;
     delete t;
-    delete u;
     delete original;
 }
 
@@ -1162,9 +1142,6 @@ void test_set() {
     t_true((original->get(0))->equals(u));
     OK("test set");
     
-    delete s;
-    delete t;
-    delete u;
     delete original;
 }
 
@@ -1181,9 +1158,6 @@ void test_str_set() {
     t_true((original->get(0))->equals(u));
     OK("test str set");
     
-    delete s;
-    delete t;
-    delete u;
     delete original;
 }
 
@@ -1221,9 +1195,9 @@ void test_float_set() {
 
 // test bool set
 void test_bool_set() {
-    bool s = 96.5;
-    bool t = -72.5;
-    bool u = 84.5;
+    bool s = 1;
+    bool t = 0;
+    bool u = 1;
     BoolArray * original = new BoolArray();
     original->push_back(s);
     original->push_back(t);
