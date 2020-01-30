@@ -96,6 +96,30 @@ void test_add() {
     delete l_expect;
 }
 
+// test str add
+void test_str_add() {
+    String * s = new String("Hello");
+    String * t = new String("World");
+    String * u = new String("Hi");
+    StrArray * l = new StrArray();
+    l->push_back(s);
+    l->push_back(t);
+    l->add(1, u);
+    StrArray * l_expect = new StrArray();
+    l_expect->push_back(s);
+    l_expect->push_back(u);
+    l_expect->push_back(t);
+    t_true(l->length() == 3);
+    t_true(l->equals(l_expect));
+    OK("test str add");
+    
+    delete s;
+    delete t;
+    delete u;
+    delete l;
+    delete l_expect;
+}
+
 // test add at pos 0
 void test_add_zero() {
     String * s = new String("Hello");
@@ -222,8 +246,8 @@ void test_arr_equals() {
 void test_str_arr_equals() {
     String* s = new String("Hello");
     String* t = new String("World");
-    StrArray * original = new Array();
-    StrArray * copy = new Array();
+    StrArray * original = new StrArray();
+    StrArray * copy = new StrArray();
     t_true(original->equals(copy));
     original->pushback(s);
     t_false(original->equals(copy));
@@ -241,8 +265,8 @@ void test_str_arr_equals() {
 void test_int_arr_equals() {
     int s = 5;
     int t = -8;
-    IntArray * original = new Array();
-    IntArray * copy = new Array();
+    IntArray * original = new IntArray();
+    IntArray * copy = new IntArray();
     t_true(original->equals(copy));
     original->push_back(s);
     t_false(original->equals(copy));
@@ -263,8 +287,8 @@ void test_int_arr_equals() {
 void test_float_arr_equals() {
     int s = 5.3;
     int t = -8;
-    FloatArray * original = new Array();
-    FloatArray * copy = new Array();
+    FloatArray * original = new FloatArray();
+    FloatArray * copy = new FloatArray();
     t_true(original->equals(copy));
     original->push_back(s);
     t_false(original->equals(copy));
@@ -285,8 +309,8 @@ void test_float_arr_equals() {
 void test_bool_arr_equals() {
     int s = 0;
     int t = 1;
-    BoolArray * original = new Array();
-    BoolArray * copy = new Array();
+    BoolArray * original = new BoolArray();
+    BoolArray * copy = new BoolArray();
     t_true(original->equals(copy));
     original->push_back(s);
     t_false(original->equals(copy));
