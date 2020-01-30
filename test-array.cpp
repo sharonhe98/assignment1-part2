@@ -120,6 +120,69 @@ void test_str_add() {
     delete l_expect;
 }
 
+// test int add
+void test_int_add() {
+    int s = 0;
+    int t = 1;
+    int u = -9;
+    IntArray * l = new IntArray();
+    l->push_back(s);
+    l->push_back(t);
+    l->add(1, u);
+    IntArray * l_expect = new IntArray();
+    l_expect->push_back(s);
+    l_expect->push_back(u);
+    l_expect->push_back(t);
+    t_true(l->length() == 3);
+    t_true(l->equals(l_expect));
+    OK("test int add");
+
+    delete l;
+    delete l_expect;
+}
+
+// test float add
+void test_float_add() {
+    float s = 0;
+    float t = 1.2;
+    float u = -9.7;
+    FloatArray * l = new FloatArray();
+    l->push_back(s);
+    l->push_back(t);
+    l->add(1, u);
+    FloatArray * l_expect = new FloatArray();
+    l_expect->push_back(s);
+    l_expect->push_back(u);
+    l_expect->push_back(t);
+    t_true(l->length() == 3);
+    t_true(l->equals(l_expect));
+    OK("test float add");
+
+    delete l;
+    delete l_expect;
+}
+
+// test bool add
+void test_bool_add() {
+    bool s = 0;
+    bool t = 1;
+    bool u = 1;
+    BoolArray * l = new BoolArray();
+    l->push_back(s);
+    l->push_back(t);
+    l->add(1, u);
+    BoolArray * l_expect = new BoolArray();
+    l_expect->push_back(s);
+    l_expect->push_back(u);
+    l_expect->push_back(t);
+    t_true(l->length() == 3);
+    t_true(l->equals(l_expect));
+    OK("test bool add");
+
+    delete l;
+    delete l_expect;
+}
+
 // test add at pos 0
 void test_add_zero() {
     String * s = new String("Hello");
@@ -277,16 +340,14 @@ void test_int_arr_equals() {
     t_true(original->equals(copy));
     OK("test IntArray equals");
     
-    delete s;
-    delete t;
     delete original;
     delete copy;
 }
 
 // test Float array equals
 void test_float_arr_equals() {
-    int s = 5.3;
-    int t = -8;
+    float s = 5.3;
+    float t = -8;
     FloatArray * original = new FloatArray();
     FloatArray * copy = new FloatArray();
     t_true(original->equals(copy));
@@ -299,16 +360,14 @@ void test_float_arr_equals() {
     t_true(original->equals(copy));
     OK("test FloatArray equals");
     
-    delete s;
-    delete t;
     delete original;
     delete copy;
 }
 
 // test Int array equals
 void test_bool_arr_equals() {
-    int s = 0;
-    int t = 1;
+    bool s = 0;
+    bool t = 1;
     BoolArray * original = new BoolArray();
     BoolArray * copy = new BoolArray();
     t_true(original->equals(copy));
@@ -321,8 +380,6 @@ void test_bool_arr_equals() {
     t_true(original->equals(copy));
     OK("test BoolArray equals");
     
-    delete s;
-    delete t;
     delete original;
     delete copy;
 }
